@@ -5,14 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class CssDinnerPlay {
     private WebDriver driver;
 
-    @BeforeClass
+    @BeforeTest
     public void setUp(){
         System.setProperty("webdriver.gecko.driver", "src\\main\\java\\geckodriver.exe");
 
@@ -25,7 +23,7 @@ public class CssDinnerPlay {
         driver.manage().window().setSize(new Dimension(1024, 768));
     }
 
-    @AfterClass
+    @AfterTest
     public void tearDown(){
         System.out.println("tearDown");
         driver.quit();
@@ -40,11 +38,11 @@ public class CssDinnerPlay {
         WebElement gameLevel = driver.findElement(By.className("level-text"));
         WebElement currentGameTask = driver.findElement(By.className("order"));
         WebElement answerField = driver.findElement(By.xpath("//*[@class='input-strobe' and @type='text']"));
-        WebElement enterButton = driver.findElement(By.xpath("//div[@contains(@class, 'enter-button') and contains(text(), 'enter')]"));
+        WebElement enterButton = driver.findElement(By.xpath("//div[@class='enter-button']"));
 
 
         // define explicit waits
-        WebDriverWait waitBefore = new WebDriverWait(driver, 8);
+        WebDriverWait waitBefore = new WebDriverWait(driver, 10);
         WebDriverWait waitAfter = new WebDriverWait(driver, 5);
     }
 }

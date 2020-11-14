@@ -12,6 +12,7 @@ public class TestLoginAndLogout {
 
     @BeforeMethod
     public void setUp(){
+        System.setProperty("webdriver.chrome.driver", "src\\main\\java\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/index.php/login");
         driver.manage().window().maximize();

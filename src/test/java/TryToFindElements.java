@@ -14,6 +14,7 @@ public class TryToFindElements {
 
     @BeforeTest
     public void setUp(){
+        System.setProperty("webdriver.chrome.driver", "src\\main\\java\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
 
